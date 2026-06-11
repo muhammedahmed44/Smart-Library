@@ -1,4 +1,4 @@
-# 📚 eLibrary
+# 📚 SmartLibrary
 
 A full-stack web application for reading PDF books with AI-powered assistance, personal library management, and role-based access control.
 

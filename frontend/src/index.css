@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-width: 240px;
+    --navbar-height: 60px;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply h-full;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply h-full font-sans text-ink-800 bg-parchment-50 antialiased;
+  }
+
+  #root {
+    @apply h-full;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-parchment-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-parchment-400;
+  }
+
+  /* Dark mode overrides */
+  .dark body {
+    @apply text-parchment-100 bg-ink-900;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-ink-600;
+  }
+}
+
+@layer components {
+  /* ── Buttons ─────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg
+           font-sans font-medium text-sm transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink-700 text-parchment-50 
+           hover:bg-ink-800 active:scale-[0.98]
+           dark:bg-parchment-200 dark:text-ink-900
+           dark:hover:bg-parchment-100;
+  }
+
+  .btn-secondary {
+    @apply btn border border-ink-200 text-ink-700 bg-white
+           hover:bg-parchment-50 active:scale-[0.98]
+           dark:border-ink-600 dark:text-parchment-200 dark:bg-ink-800
+           dark:hover:bg-ink-700;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-500 hover:bg-parchment-100 hover:text-ink-800
+           dark:text-ink-400 dark:hover:bg-ink-700 dark:hover:text-parchment-200;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 active:scale-[0.98];
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .btn-icon {
+    @apply btn p-2 rounded-lg aspect-square;
+  }
+
+  /* ── Inputs ──────────────────────────────────────── */
+  .input {
+    @apply w-full px-3 py-2 rounded-lg border border-ink-200 bg-white
+           text-ink-800 text-sm font-sans placeholder-ink-300
+           focus:outline-none focus:ring-2 focus:ring-parchment-400 focus:border-transparent
+           transition-all duration-150
+           dark:border-ink-600 dark:bg-ink-800 dark:text-parchment-100
+           dark:placeholder-ink-500 dark:focus:ring-parchment-600;
+  }
+
+  .input-error {
+    @apply border-red-400 focus:ring-red-300;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-ink-500 mb-1.5 uppercase tracking-wide
+           dark:text-ink-400;
+  }
+
+  /* ── Cards ───────────────────────────────────────── */
+  .card {
+    @apply bg-white border border-parchment-200 rounded-xl
+           dark:bg-ink-800 dark:border-ink-700;
+  }
+
+  .card-elevated {
+    @apply card shadow-sm;
+  }
+
+  /* ── Badges ──────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium;
+  }
+
+  .badge-amber {
+    @apply badge bg-parchment-100 text-parchment-700
+           dark:bg-parchment-800 dark:text-parchment-300;
+  }
+
+  .badge-ink {
+    @apply badge bg-ink-100 text-ink-600
+           dark:bg-ink-700 dark:text-ink-300;
+  }
+
+  .badge-green {
+    @apply badge bg-green-50 text-green-700
+           dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .badge-red {
+    @apply badge bg-red-50 text-red-700
+           dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  /* ── Page layout ─────────────────────────────────── */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  .section-title {
+    @apply font-serif text-2xl text-ink-800 dark:text-parchment-100;
+  }
+
+  /* ── Skeleton ────────────────────────────────────── */
+  .skeleton {
+    @apply animate-pulse bg-parchment-200 rounded-lg dark:bg-ink-700;
+  }
+
+  /* ── Divider ─────────────────────────────────────── */
+  .divider {
+    @apply border-t border-parchment-200 dark:border-ink-700;
+  }
+}
+
+/* ── PDF Viewer overrides ─────────────────────────── */
+.rpv-core__viewer {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.rpv-core__page-layer {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
+}

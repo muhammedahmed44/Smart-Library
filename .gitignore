@@ -1,0 +1,11 @@
+node_modules/
+**/node_modules/
+.env
+dist/
+.DS_Store
+*.log
+backend/uploads/books/
+backend/uploads/covers/
+backend/uploads/
+coverage/
+.vite/
